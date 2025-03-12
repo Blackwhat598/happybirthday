@@ -68,8 +68,8 @@
         }
         /* 紙條 */
         .message {
-            width: 200px;
-            height: 100px;
+            width: 250px;
+            height: 150px;
             background: white;
             color: black;
             position: absolute;
@@ -98,10 +98,9 @@
 
     <!-- 紙條 -->
     <div class="message" id="message">
-    我喜歡你，你知道虎高童錦程是誰嗎？<br><br>
-    <strong>答案：林O禹</strong>
+        我喜歡你，你知道虎高童錦程是誰嗎？<br><br>
+        <strong>答案：林O禹</strong>
     </div>
-
 
     <canvas id="fireworks"></canvas>
 
@@ -185,11 +184,17 @@
 
         // 禮物盒點擊動畫
         document.getElementById("gift-box").addEventListener("click", function () {
-            this.style.transform = "translateX(-50%) scale(0)";
+            this.style.transform = "translateX(-50%) scale(1.2)";
             setTimeout(() => {
-                document.getElementById("message").style.transform = "translate(-50%, -50%) scale(1)";
-                document.getElementById("message").style.opacity = "1";
-            }, 500);
+                this.style.transform = "translateX(-50%) scale(0)"; // 縮小隱藏
+            }, 300);
+
+            // 延遲顯示紙條
+            setTimeout(() => {
+                const message = document.getElementById("message");
+                message.style.transform = "translate(-50%, -50%) scale(1)";
+                message.style.opacity = "1";
+            }, 600);
         });
 
         // 讓 canvas 大小自適應視窗
